@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <!-- 
+      Selecting code schema, loading styles and setting favicon
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" href="./CSS/globals.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    
+    <!-- Setting title -->
+    <title>Insert Title Here</title>
+  </head>
+
+  <body>
+
+    <!-- Header which contains title and description paragraph -->
+    <header class="header-container">
+      <h1>
+        Simple, traffic-based pricing
+      </h1>
+      <p>
+        Sign-up for our 30-day trial. No credit card required.
+      </p>
+    </header>
+    
+    <!-- 
+      Main part of the page consists out of: 
+      - Paragraph for number of page previews
+      - Paragraph for cost per month / year
+      - Slider 
+      - Billing container:
+          - Paragraph for Monthly Billing
+          - Switcher between Monthly / Yearly billing
+          - Paragraph for yearly billing 
+      - Horizontal line
+      - List for features
+      - Start trial button
+    -->
+    <main class="main-container">
+      <p class="page-views" id="page-views">
+        100K PAGEVIEWS
+      </p>
+      <p class="pricing">
+        <span class="cost" id="cost">
+          $16.00
+        </span>
+        <span class="text">
+          / month
+        </span>
+      </p>
+      <input type="range" id="slider" class="slider" min=0 max=5 step=.05 value=3>
+      <section class="billing-container">
+        <p class="billing">
+          Monthly Billing
+        </p>
+        <div class="payment-switcher" id="payment-switcher" type="monthly">
+          <div class="billing-switch" id="monthly-billing"></div>
+          <div class="billing-switch billing-hidden" id="yearly-billing"></div>
+        </div>
+        <p class="billing">
+          Yearly Billing 
+        </p>
+        <p class="discount">
+          <span class="discount-full-text">
+            25% discount
+          </span>
+          <span class="discount-short-text">
+            -25%
+          </span>
+        </p>
+      </section>
+      <hr/>
+      <ul class="features">
+        <li>Unlimited websites</li>
+        <li>100% data ownership</li>
+        <li>Email reports</li>
+      </ul>
+      <div class="trial-button">
+        <p>
+          Start my trial
+        </p>
+      </div>
+    </main>
+
+    <script src="./utils/index.js"></script>
+  </body>
+</html>
