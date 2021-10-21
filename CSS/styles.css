@@ -222,6 +222,8 @@ input[type=range]::-moz-range-thumb {
 /* Styling Monthly billing and yearly billing text */
 .billing {
 
+  margin-top: 3px;
+
   font-weight: 600;
   font-size: 12px;
   color: #848EAD;
@@ -490,6 +492,7 @@ hr {
 
   .billing {
   
+    margin-top: 3px;
     font-size: 10px;
   }
   
