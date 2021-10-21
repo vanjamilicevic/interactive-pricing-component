@@ -1,0 +1,597 @@
+
+/* 
+  ------------------------------------------------------------------------------------
+  
+
+  Desktop Layout
+
+
+  ------------------------------------------------------------------------------------
+*/
+
+/* 
+   Header container consists out of:
+   - Title
+   - Description paragraph
+   - Circles set as background image
+*/
+
+.header-container {
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* Centering the content */
+  width: 500px;
+  margin: auto;
+  margin-top: 8vh;
+  text-align: center;
+  padding: 50px;
+
+  /* Setting circles background */
+  background-image: url("../images/pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-position: center center; 
+}
+
+.header-container h1 {
+
+  font-weight: 800;
+  font-size: 28px;
+  color: #293356;
+}
+
+.header-container p {
+
+  font-weight: 600;
+  font-size: 15px;
+  color: #848EAD;
+}
+
+/*
+  Main part of the page consists out of: 
+  - Paragraph for number of page previews
+  - Paragraph for cost per month / year
+  - Slider 
+  - Paragraph for Monthly Billing
+  - Switcher between Monthly / Yearly billing
+  - Paragraph for yearly billing 
+  - Horizontal line
+  - List for features
+  - Start trial button
+
+  It is split in this way in order for easier support of lower resolutions
+*/
+.main-container {
+
+  /* Setting layout */
+  display: grid;
+  grid-template-areas: 
+    "pageviews pricing"
+    "slider slider"
+    "billing billing"
+    "hr hr"
+    "features button";
+
+    /* Styling main container */
+    width: 500px;
+    margin: 5vh auto 0 auto;
+    padding: 50px;
+    border-radius: 10px;
+    background-color: white;
+
+  -webkit-box-shadow: 0px 6px 19px 1px rgba(0,0,0,0.10); 
+  box-shadow: 0px 6px 19px 1px rgba(0,0,0,0.10);
+}
+
+.page-views {
+
+  grid-area: pageviews;
+
+  /* Setting text style */
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #848EAD;
+}
+
+/* 
+  Pricing container consists out of: 
+  - Cost 
+  - Text
+
+  Container itself is aligned on the right
+*/
+.pricing {
+
+  grid-area: pricing;
+  margin-left: auto;
+}
+
+.pricing .cost {
+
+  font-weight: 800;
+  font-size: 40px;
+  color: #293356;
+}
+
+.pricing .text {
+
+  /* Aligns the baseline of the element with the superscript-baseline of its parent */
+  vertical-align: super;
+
+  font-weight: 600;
+  font-size: 16px;
+  color: #848EAD;
+}
+
+/* 
+  Slider colors are set through JS as they require value in order to fill
+  left and right side of the thumb with proper colors
+*/
+.slider {
+
+  grid-area: slider;
+  margin-top: 5vh;
+
+  border-radius: 8px;
+  height: 20px;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+/* Styling slider thumb */
+.slider::-webkit-slider-thumb {
+ 
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+
+  background-color: #10D8C4;
+  background-image: url("../images/icon-slider.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+/* Setting darker background color when thumb is active */
+.slider::-webkit-slider-thumb:active {
+
+  background-color: #24AEA1;
+}
+
+/* Setting box shadow on hover */
+.slider::-webkit-slider-thumb:hover {
+
+  -webkit-box-shadow: 0px 20px 33px 11px rgba(16,216,196,0.35); 
+  box-shadow: 0px 20px 33px 11px rgba(16,216,196,0.35);
+}
+
+/* Styling slider thumb for Mozila separately */
+input[type=range]::-moz-range-thumb {
+  
+  height: 50px;
+  width: 50px;
+  border: 0;
+  border-radius: 100%;
+
+  background-color: #10D8C4;
+  background-image: url("../images/icon-slider.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+/* Setting box shadow on hover for Mozila */
+.slider::-moz-range-thumb:hover {
+
+  -webkit-box-shadow: 0px 20px 33px 11px rgba(16,216,196,0.35); 
+  box-shadow: 0px 20px 33px 11px rgba(16,216,196,0.35);
+}
+
+/* Setting darker background color when thumb is active */
+.slider::-moz-range-thumb:active {
+
+  background-color: #24AEA1;
+}
+
+/* 
+  Billing containers consists out of:
+  - Paragraph that says "Monthly Billing"
+  - Div called "payment-switcher" that contains: 
+    - Left div (monthly)
+    - Right div (yearly)
+  - Yearly billing with discount
+*/
+.billing-container {
+
+  grid-area: billing;
+
+  display: flex;
+  
+  gap: 10px;
+  margin: 6vh 0 0 auto;
+  margin-left: auto;
+}
+
+/* Styling Monthly billing and yearly billing text */
+.billing {
+
+  margin-top: 3px;
+
+  font-weight: 600;
+  font-size: 12px;
+  color: #848EAD;
+}
+
+.discount {
+
+  font-weight: 800;
+  font-size: 10px;
+  color: #FF8D68;
+
+  background-color: #FEEDE8;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  margin-top: -3px;
+
+  height: 13px;
+}
+
+.discount-short-text {
+
+  display: none;
+}
+
+.payment-switcher {
+
+  display: flex;
+  width: 35px;
+  padding: 3px 4px 3px 4px;
+  background-color: #CFD8EF;
+  border-radius: 10px;
+
+  gap: 3px;
+}
+
+.payment-switcher:hover {
+
+  background-color: #7AEADF;
+}
+
+.billing-switch {
+
+  width: 45%;
+  background-color: white;
+  border-radius: 100%;
+}
+
+.billing-hidden {
+
+  visibility: hidden;
+}
+
+/*
+  Horizontal line is of full width
+*/
+
+hr {
+
+  grid-area: hr;
+
+  width: calc(100% + 100px);
+  margin: 3vh -50px 3vh;
+
+  color: #ECF0FB;
+  opacity: 0.35;
+}
+
+/* 
+  Features is unordered list
+*/
+.features {
+
+  grid-area: features;
+
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.features li {
+
+  margin: 10px 0;
+
+  font-weight: 600;
+  font-size: 12px;
+  color: #848EAD;
+}
+
+.features li::before {
+
+  content: url("../images/icon-check.svg");
+  padding-right: 15px;
+}
+
+.trial-button {
+
+  grid-area: button;
+
+  border-radius: 50px;
+  background-color: #293356;
+  width: 150px;
+  height: 40px;
+  margin-left: auto;
+  margin-top: 20px;
+  text-align: center;
+
+  font-weight: 800;
+  font-size: 12px;
+  color: #BECDFF;
+}
+
+.trial-button:hover {
+
+  color: white;
+  cursor: pointer;
+}
+
+.trial-button p {
+
+  margin-top: 14px;
+}
+
+/* 
+  ------------------------------------------------------------------------------------
+  
+
+  Media Queries
+
+
+  ------------------------------------------------------------------------------------
+*/
+
+@media only screen and (max-width: 850px) {
+  
+  .header-container {
+
+    width: 70vw;
+    margin: 30px auto 30px auto;
+    /* margin-top: 30px; */
+    /* margin-bottom: 30px; */
+  }
+
+  .header-container h1 {
+
+    font-size: 20px;
+  }
+  
+  .header-container p {
+  
+    font-size: 13px;
+  }
+
+  .main-container {
+
+    grid-template-areas: 
+      "pageviews"
+      "slider"
+      "pricing"
+      "billing"
+      "hr"
+      "features"
+      "button";
+    
+    width: 65vw;
+    margin: auto;
+    margin-bottom: 25px;
+  }
+
+  .page-views {
+
+    font-size: 12px;
+    margin: auto;
+  }
+
+  
+  .slider {
+
+    height: 7px;
+    margin-bottom: 10px;
+  }
+
+  /* Styling slider thumb */
+  .slider::-webkit-slider-thumb {
+  
+    height: 37px;
+    width: 37px;
+  }
+
+
+  /* Styling slider thumb for Mozila separately */
+  /* .slider::-moz-range-thumb {
+    
+    height: 25px;
+    width: 25px;
+  } */
+
+  .pricing {
+
+    grid-area: pricing;
+
+    margin: auto;
+    margin-top: 40px;
+  }
+  
+  .pricing .cost {
+  
+    font-size: 32px;
+  }
+  
+  .pricing .text {
+  
+    font-size: 14px;
+  }
+
+  .billing-container {
+
+    gap: 5px;
+    margin: 7vh auto 0 auto;
+  }
+
+  .discount-short-text {
+
+    display: inline-block;
+  }
+
+  .discount-full-text {
+
+    display: none;
+  }
+
+  hr {
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .features {
+
+    margin: auto;
+  }
+
+  .trial-button {
+
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 355px) and (max-width: 376px) and (min-height: 639px) and (max-height: 668px) {
+
+  .main-container {
+
+    padding: 25px;
+    width: 75%;
+  }
+
+  .billing-container {
+
+    gap: 9px;
+  }
+  
+  .slider {
+
+    margin-top: 50px;
+  }
+
+  .billing {
+  
+    margin-top: 3px;
+    font-size: 10px;
+  }
+  
+  .discount {
+  
+    font-size: 9px;
+    height: 11px;
+  }
+
+  .payment-switcher {
+  
+    width: 30px;
+  }
+  
+  hr {
+
+    width: calc(100% + 50px);
+    margin-left: -25px;
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 420px) and (min-height: 720px) and (max-height: 825px) {
+
+  .main-container {
+
+    padding: 25px;
+    width: 75%;
+  }
+
+  .billing-container {
+
+    gap: 9px;
+  }
+  
+  .slider {
+
+    margin-top: 50px;
+  }
+
+  .billing {
+  
+    font-size: 10px;
+  }
+  
+  .discount {
+  
+    font-size: 9px;
+    height: 11px;
+  }
+
+  .payment-switcher {
+  
+    width: 30px;
+  }
+  
+  hr {
+
+    width: calc(100% + 50px);
+    margin-left: -25px;
+  }
+}
+
+@media only screen and (min-width: 279px) and (max-width: 321px) and (min-height: 567px) and (max-height: 654px) {
+
+  .main-container {
+
+    padding: 25px;
+    width: 75%;
+  }
+
+  .billing-container {
+
+    gap: 9px;
+  }
+  
+  .slider {
+
+    margin-top: 50px;
+  }
+
+  .billing {
+  
+    font-size: 10px;
+  }
+  
+  .discount {
+  
+    font-size: 9px;
+    height: 11px;
+  }
+
+  .payment-switcher {
+  
+    width: 30px;
+  }
+  
+  hr {
+
+    width: calc(100% + 50px);
+    margin-left: -25px;
+  }
+}
